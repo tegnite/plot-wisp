@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["./*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "files": ["src/types/express.d.ts"],
+  "exclude": ["node_modules"]
+}
