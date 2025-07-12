@@ -4,7 +4,7 @@ import { fetcher } from "@/lib/fetcher";
 import { User_Interface } from "@/types/user.types";
 
 export default async function Home() {
-	const { error, data } = await fetcher<User_Interface[]>("/api/users", "GET");
+	const { data } = await fetcher<User_Interface[]>("/api/users", "GET");
 	console.log(data);
 	return (
 		<main className={"grid place-content-center h-screen space-y-4"}>
