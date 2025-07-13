@@ -10,12 +10,28 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+# Set build-time arguments
+ARG NEXT_PUBLIC_CLIENT_API_URL
+ARG NEXT_SERVER_API_URL
+
+# Set environment variables for the build
+ENV NEXT_PUBLIC_CLIENT_API_URL=$NEXT_PUBLIC_CLIENT_API_URL
+ENV NEXT_SERVER_API_URL=$NEXT_SERVER_API_URL
+
 RUN npm run build
 
 # Production image
 FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
+
+# Set runtime environment variables
+ARG NEXT_PUBLIC_CLIENT_API_URL
+ARG NEXT_SERVER_API_URL
+ENV NEXT_PUBLIC_CLIENT_API_URL=$NEXT_PUBLIC_CLIENT_API_URL
+ENV NEXT_SERVER_API_URL=$NEXT_SERVER_API_URL
+
 
 COPY --from=builder /app/next.config.ts ./
 COPY --from=builder /app/public ./public
