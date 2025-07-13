@@ -5,16 +5,18 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
 
-export function Register_Form() {
+type Props_Type = {
+	success_callback: () => Promise<void>;
+};
+
+export function Register_Form(props: Props_Type) {
 	const { register_password, register_username, set_register_password, set_register_username, handle_register, set_register_gender, register_gender, error } = useGetRegisterStates();
 
 	const handle_gender_change = (value: string) => {
 		set_register_gender(value as "male" | "female" | "other");
 	};
 
-	const router = useRouter();
 	return (
 		<Card>
 			<CardHeader>
@@ -43,7 +45,7 @@ export function Register_Form() {
 				{!!error && <div className="text-red-400 font-bold text-sm">{error}</div>}
 			</CardContent>
 			<CardFooter>
-				<Button onClick={() => handle_register(() => router.push("/"))}>Register</Button>
+				<Button onClick={() => handle_register(props.success_callback)}>Register</Button>
 			</CardFooter>
 		</Card>
 	);

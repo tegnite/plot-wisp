@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useRouter } from "next/navigation";
 
-export function Login_Form() {
+type Props_Type = {
+	success_callback: () => Promise<void>;
+};
+
+export function Login_Form(props: Props_Type) {
 	const { login_username, login_password, handle_login, set_login_username, set_login_password, error } = useGetLoginStates();
-	const router = useRouter();
 	return (
 		<Card>
 			<CardHeader>
@@ -27,7 +29,7 @@ export function Login_Form() {
 				{!!error && <div className="text-red-400 font-bold text-sm">{error}</div>}
 			</CardContent>
 			<CardFooter>
-				<Button onClick={() => handle_login(() => router.push("/"))}>Login</Button>
+				<Button onClick={() => handle_login(props.success_callback)}>Login</Button>
 			</CardFooter>
 		</Card>
 	);

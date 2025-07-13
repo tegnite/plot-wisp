@@ -8,7 +8,7 @@ interface Auth_Context_Type {
 	user: User_Interface | null;
 	is_loading: boolean;
 	error: string | null;
-	refetch_user: () => void;
+	refetch_user: () => Promise<void>;
 	logout: (call_back?: () => void) => void;
 }
 
@@ -49,8 +49,8 @@ export const Auth_Context_Provider = ({ children }: { children: ReactNode }) => 
 		fetch_user();
 	}, []);
 
-	const refetch_user = () => {
-		fetch_user();
+	const refetch_user = async () => {
+		await fetch_user();
 	};
 
 	const value = { user, is_loading, error, refetch_user, logout };
