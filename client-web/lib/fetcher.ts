@@ -3,7 +3,8 @@ import { Api_Response_Type } from "@/types/api-response.types";
 
 export const fetcher = async <K>(url: string, method: HTTP_METHOD_TYPE, body?: object | FormData): Promise<{ error: null | string; data: K | null }> => {
 	try {
-		const base_url = get_env("NEXT_PUBLIC_API_URL");
+		const base_url = typeof window === "undefined" ? get_env("server_api_url") : get_env("client_api_url");
+
 		const full_url = `${base_url}${url}`;
 		console.log("full url", full_url);
 

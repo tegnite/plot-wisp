@@ -8,7 +8,7 @@ This document outlines the coding conventions and best practices for this Next.j
 - **Constants:** `SCREAMING_SNAKE_CASE` for global constants (e.g., `API_URL`).
 - **Types & Interfaces:** `Capital_Snake_Case` (e.g., `User_Type`, `User_Interface`).
 - **Components:** `Capital_Snake_Case` (e.g., `User_Profile`, `Header`).
-- **Hooks:** `use` prefix with `snake_case` (e.g., `use_user_data`, `use_auth`).
+- **Hooks:** `use` prefix with `PascalCase` (e.g., `useUserData`, `useAuth`).
 - **Files:** `kebab-case` (e.g., `user-profile.tsx`, `auth.service.ts`).
 - **Folders:** `kebab-case` (e.g., `src/components`, `src/lib`).
 
