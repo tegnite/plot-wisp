@@ -12,6 +12,8 @@ This document outlines the coding conventions and best practices for this Next.j
 - **Files:** `kebab-case` (e.g., `user-profile.tsx`, `auth.service.ts`).
 - **Folders:** `kebab-case` (e.g., `src/components`, `src/lib`).
 
+**Note:** These naming conventions apply to project-specific code. When using external libraries or frameworks (e.g., `shadcn/ui`), it is acceptable to use their established naming conventions for components, files, and other assets.
+
 ## 2. Code Style
 
 - **Indentation:** 4 spaces.

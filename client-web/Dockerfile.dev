@@ -2,6 +2,9 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Set NODE_ENV for Next.js to correctly load .env files in development
+ENV NODE_ENV=development
+
 # Install latest npm
 RUN npm install -g npm@latest
 
