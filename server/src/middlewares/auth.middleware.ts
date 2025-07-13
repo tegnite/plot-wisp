@@ -8,11 +8,16 @@ export const auth_middleware = catch_async(async (req: Request, _: Response, nex
 
     if (!token) {
         req.user_id = null;
-        next();
-    } else {
+        return next();
+    }
+
+    try {
         const jwt_secret = get_env('JWT_SECRET');
         const decoded = jwt.verify(token, jwt_secret) as { id: string };
         req.user_id = decoded.id;
-        next();
+    } catch (error) {
+        req.user_id = null;
     }
+
+    next();
 });

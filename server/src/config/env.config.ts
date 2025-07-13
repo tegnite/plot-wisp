@@ -5,6 +5,7 @@ const ENV_KEYS = [
     "DB_NAME",
     "JWT_SECRET",
     "CLIENT_WEB_ORIGIN",
+    "NODE_ENV",
 ] as const;
 
 export type ENV_KEYS_TYPE = (typeof ENV_KEYS)[number];
