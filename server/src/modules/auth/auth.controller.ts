@@ -33,6 +33,7 @@ function set_token_to_cookie(res : Response, token : string) {
     res.cookie('token', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
         maxAge: 172800000 // 2 days
     });
 }
