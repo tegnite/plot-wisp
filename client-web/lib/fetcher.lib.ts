@@ -6,7 +6,6 @@ export const fetcher = async <K>(url: string, method: HTTP_METHOD_TYPE, body?: o
 		const base_url = typeof window === "undefined" ? get_env("server_api_url") : get_env("client_api_url");
 
 		const full_url = `${base_url}${url}`;
-		console.log("full url", full_url);
 
 		const fetch_options: RequestInit = {
 			method,
@@ -19,6 +18,7 @@ export const fetcher = async <K>(url: string, method: HTTP_METHOD_TYPE, body?: o
 				"Content-Type": body instanceof FormData ? "multipart/form-data" : "application/json",
 			};
 		}
+		console.log("fetcher", fetch_options, full_url, method);
 
 		const response = await fetch(full_url, fetch_options);
 		console.log("response", response);

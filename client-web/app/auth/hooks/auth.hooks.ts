@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { type User_Interface } from "@/types/user.types";
-import { fetcher } from "@/lib/fetcher";
+import { fetcher } from "@/lib/fetcher.lib";
 
 export const useGetLoginStates = () => {
 	const [login_username, set_login_username] = useState<string>();
