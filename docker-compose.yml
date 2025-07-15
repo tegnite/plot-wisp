@@ -1,27 +1,35 @@
 services:
-  web:
-    build:
-      context: ./client-web
-      dockerfile: Dockerfile.dev
-    ports:
-      - "3000:3000"
-    env_file:
-      - ./client-web/.env
-    volumes:
-      - ./client-web:/app
-      - /app/node_modules
-      - /app/.next
-    depends_on:
-      - server
-  server:
-    build:
-      context: ./server
-      dockerfile: Dockerfile.dev
-    ports:
-      - "8000:8000"
-    command: npm run dev
-    env_file:
-      - ./server/.env
-    volumes:
-      - ./server:/app
-      - /app/node_modules
+    web:
+        build:
+            context: ./client-web
+            dockerfile: Dockerfile.dev
+        ports:
+            - "3000:3000"
+        env_file: ./client-web/.env
+        develop:
+            watch:
+                - path: ./client-web/package.json
+                  action: rebuild
+                - path: ./client-web/package-lock.json
+                  action: rebuild
+                - path: ./client-web
+                  action: sync
+                  target: /app
+        depends_on:
+            - server
+    server:
+        build:
+            context: ./server
+            dockerfile: Dockerfile.dev
+        ports:
+            - "8000:8000"
+        env_file: ./server/.env
+        develop:
+            watch:
+                - path: ./server/package.json
+                  action: rebuild
+                - path: ./server/package-lock.json
+                  action: rebuild
+                - path: ./server/src
+                  action: sync
+                  target: /app/src

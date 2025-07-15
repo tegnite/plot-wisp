@@ -24,7 +24,7 @@ app.use("/api/auth", auth_routes);
 app.use("/api/users", user_routes);
 
 app.get("/", (_, res) => {
-    res.send("Hello world! form plot-wisp backend!");
+    res.send("hello form plot-wisp backend!");
 });
 
 // Error handling middleware
