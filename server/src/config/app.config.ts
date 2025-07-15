@@ -4,8 +4,10 @@ import auth_routes from "@app/modules/auth/auth.routes";
 import { error_middleware } from "@app/middlewares/error.middleware";
 import user_routes from "@app/modules/users/users.routes";
 import cors from "cors";
-import { get_env } from "./env.config";
+import { get_env } from "@app/config/env.config";
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 app.set("trust proxy", 1); // Trust first proxy
 const client_web_origin = get_env("CLIENT_WEB_ORIGIN");

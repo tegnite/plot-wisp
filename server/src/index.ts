@@ -1,7 +1,8 @@
-import connect_db from '@app/config/db.config';
+import connect_db from "@app/config/db.config";
 import app from "@app/config/app.config";
+import { get_env } from "@app/config/env.config";
 
-const port = 8000;
+const port = Number(get_env("PORT")) ?? 8000;
 
 const start_server = async () => {
     // Connect to database
@@ -13,6 +14,9 @@ const start_server = async () => {
 };
 
 start_server().catch((error) => {
-    console.error('Failed to connect to the database or start the server:', error);
+    console.error(
+        "Failed to connect to the database or start the server:",
+        error
+    );
     process.exit(1); // Exit if database connection fails
 });

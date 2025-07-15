@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { fetcher } from "@/lib/fetcher.lib";
+import { fetcher } from "@/utilities/fetcher.utilities";
 import { User_Interface } from "@/types/user.types";
 
 interface Auth_Context_Type {

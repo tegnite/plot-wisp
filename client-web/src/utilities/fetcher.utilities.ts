@@ -1,4 +1,4 @@
-import { get_env } from "@/config/env.config";
+import { get_env } from "@/configs/env.configs";
 import { Api_Response_Type } from "@/types/api-response.types";
 
 export const fetcher = async <K>(url: string, method: HTTP_METHOD_TYPE, body?: object | FormData): Promise<{ error: null | string; data: K | null }> => {

@@ -21,3 +21,5 @@ async function test() {
 	}
 	return data.data;
 }
+
+console.log(test);

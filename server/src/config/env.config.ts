@@ -1,11 +1,10 @@
-import * as process from "node:process";
-
 const ENV_KEYS = [
     "MONGO_URI",
     "DB_NAME",
     "JWT_SECRET",
     "CLIENT_WEB_ORIGIN",
     "NODE_ENV",
+    "PORT",
 ] as const;
 
 export type ENV_KEYS_TYPE = (typeof ENV_KEYS)[number];
