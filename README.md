@@ -4,8 +4,8 @@ This is a monorepo for the Plot Wisp application, containing the Next.js client 
 
 ## Project Structure
 
-- `client-web`: The Next.js frontend application.
-- `server`: The Node.js backend server.
+-   `client-web`: The Next.js frontend application.
+-   `server`: The Node.js backend server.
 
 ## Getting Started
 
@@ -13,26 +13,32 @@ This project uses Docker and Docker Compose to orchestrate the development envir
 
 ### Prerequisites
 
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
+-   [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ### Development
 
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/tegnite/plot-wisp.git 
+    git clone https://github.com/tegnite/plot-wisp.git
     cd plot-wisp
     ```
 
 2.  **Environment Variables:**
 
-    -   **Server:** Create a `.env` file in the `server` directory by copying the `.env.example` file. Add the variables.
-    -   **Client:** Create a `.env` file in the `client-web` directory by copying the `.env.example` file. Add the variables.
+    -   **Server:** Create a `.env` file in the `server` directory. Add the variables.
+    -   **Client:** Create a `.env` file in the `client-web` directory. Add the variables.
 
 3.  **Build and run the containers:**
 
     ```bash
-    docker-compose up --build -d
+    docker-compose up --build --watch
+    ```
+
+    or
+
+    ```bash
+    docker compose up --build --watch
     ```
 
     This command will build the Docker images for both the client and server and start the containers in detached mode.
@@ -69,13 +75,14 @@ For production, you will need to build and run the containers separately.
 1.  **Build the production image:**
 
     ```bash
-    docker build -t plot-wisp-server:production -f server/Dockerfile .
+    cd server
+    docker build -t plot-wisp-server:production .
     ```
 
 2.  **Run the production container:**
 
     ```bash
-    docker run -d -p 8000:8000 --name plot-wisp-server-prod --env-file ./server/.env.production plot-wisp-server:production
+    docker run -p 8000:8000 --name plot-wisp-server-prod plot-wisp-server:production
     ```
 
 #### Client
@@ -83,11 +90,12 @@ For production, you will need to build and run the containers separately.
 1.  **Build the production image:**
 
     ```bash
-    docker build -t plot-wisp-client:production -f client-web/Dockerfile .
+    cd client-web
+    docker build -t plot-wisp-client:production .
     ```
 
 2.  **Run the production container:**
 
     ```bash
-    docker run -d -p 3000:3000 --name plot-wisp-client-prod plot-wisp-client:production
+    docker run -p 3000:3000 --name plot-wisp-client-prod plot-wisp-client:production
     ```
