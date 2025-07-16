@@ -11,12 +11,14 @@ dotenv.config();
 const app = express();
 app.set("trust proxy", 1); // Trust first proxy
 const client_web_origin = get_env("CLIENT_WEB_ORIGIN");
+
 app.use(
     cors({
         origin: client_web_origin,
         credentials: true,
     })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 

@@ -9,6 +9,16 @@ const user_schema = new Schema<User_Interface>({
     description: { type: String, required: false },
     profile_picture: { type: String, required: false },
     cover_picture: { type : String, required : false },
-}, { timestamps: true });
+}, {
+    timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+});
+
+user_schema.virtual('stories', {
+    ref: 'Story',
+    localField: '_id',
+    foreignField: 'user',
+});
 
 export const User_Model = model<User_Interface>('User', user_schema);
