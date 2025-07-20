@@ -1,0 +1,95 @@
+// .devcontainer/devcontainer.json
+{
+	"name": "plot-wisp monorepo",
+
+	// Use the docker-compose.yml file
+	"build": {
+		"dockerfile": "../Dockerfile"
+	},
+
+	"workspaceFolder": "/workspaces/plot-wisp", // The workspace folder inside the container.
+
+	// Forward the application ports from the container to your host machine
+	"forwardPorts": [3000, 8000],
+
+	// Commands to run after the container is created for the first time
+	"postCreateCommand": "echo ready!!", // Or "yarn install" or "npm install" at the monorepo root
+
+	// Configure VS Code-specific settings and extensions
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"workbench.colorTheme": "Tokyo Night Storm",
+				"workbench.sideBar.location": "right",
+				"files.autoSave": "onFocusChange",
+				"editor.stickyScroll.enabled": false,
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"prettier.useTabs": true,
+				"prettier.tabWidth": 4,
+				"html.format.preserveNewLines": true,
+				"html.format.wrapLineLength": 0,
+				"html.format.wrapAttributes": "preserve",
+				"prettier.printWidth": 5000,
+				"prettier.proseWrap": "never",
+				"workbench.editor.showTabs": "single",
+				"prettier.arrowParens": "avoid",
+				"prettier.htmlWhitespaceSensitivity": "css",
+				"files.exclude": {
+					"**/vendor": true
+				},
+				"search.exclude": {
+					"**/vendor": true
+				},
+				"vim.handleKeys": {
+					"<C-n>": false
+				},
+				"explorer.compactFolders": false,
+				"code-runner.runInTerminal": true,
+				"code-runner.saveFileBeforeRun": true,
+				"dart.flutterSdkPath": "/home/meowveloper/development/flutter",
+				"RainbowBrackets.depreciation-notice": false,
+				"workbench.iconTheme": "material-icon-theme",
+				"workbench.editorAssociations": {
+					"*.bpmn": "default"
+				},
+				"[markdown]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"editor.formatOnPaste": true,
+				"editor.minimap.scale": 2,
+				"editor.minimap.size": "fit",
+				"codeviz.analyticsEnabled": true,
+				"editor.minimap.maxColumn": 50,
+				"cSpell.userWords": ["arsari", "Asari", "Aung", "AUTOINCREMENT", "iconify", "Khant", "manifoldco", "meowveloper", "Nuxt", "Postgrest", "Pressable", "supabase", "Timeslot", "timeslots"],
+				"editor.detectIndentation": false,
+				"quokka.colors": {
+					"covered": "#62b455",
+					"errorPath": "#ffa0a0",
+					"errorSource": "#fe536a",
+					"notCovered": "#cccccc",
+					"partiallyCovered": "#d2a032"
+				},
+				"editor.inlayHints.fontSize": 4,
+				"editor.inlayHints.padding": true,
+				"javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+				"javascript.inlayHints.parameterTypes.enabled": true,
+				"javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+				"javascript.inlayHints.variableTypes.enabled": true,
+				"typescript.inlayHints.enumMemberValues.enabled": true,
+				"typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+				"typescript.inlayHints.parameterNames.enabled": "all",
+				"typescript.inlayHints.parameterTypes.enabled": true,
+				"typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+				"typescript.inlayHints.variableTypes.enabled": true,
+				"editor.fontFamily": "JetBrains Mono",
+				"editor.fontLigatures": true,
+				"workbench.preferredHighContrastColorTheme": "Visual Studio Dark - C++",
+				"docker.extension.enableComposeLanguageServer": false,
+				"workbench.editor.empty.hint": "hidden",
+				"editor.inlayHints.enabled": "off"
+			},
+			"extensions": ["vscodevim.vim", "llam4u.nerdtree", "enkia.tokyo-night", "esbenp.prettier-vscode", "usernamehw.errorlens", "formulahendry.auto-rename-tag", "vincaslt.highlight-matching-tag", "tal7aouy.rainbow-bracket", "ms-azuretools.vscode-docker", "dbaeumer.vscode-eslint", "ms-vscode.vscode-typescript-next"]
+		}
+	}
+}
