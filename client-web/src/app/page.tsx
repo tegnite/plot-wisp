@@ -6,7 +6,6 @@ export default function Home() {
 		<div className="w-screen h-screen flex flex-col gap-3 justify-center items-center">
 			<div>server: {text}</div>
 			<Client_Component />
-			<div>Testing changes</div>
 		</div>
 	);
 }
