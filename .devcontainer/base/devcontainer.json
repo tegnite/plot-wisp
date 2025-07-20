@@ -4,7 +4,7 @@
 
 	// Use the docker-compose.yml file
 	"build": {
-		"dockerfile": "Dockerfile"
+		"dockerfile": "../Dockerfile"
 	},
 
 	"workspaceFolder": "/workspaces/plot-wisp", // The workspace folder inside the container.
