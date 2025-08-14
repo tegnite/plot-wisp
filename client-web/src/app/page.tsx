@@ -1,4 +1,5 @@
 import Client_Component from "./client-component";
+import { Button } from "@/components/ui/button";
 
 export default async function Home() {
 	const url = process.env.API_URL;
@@ -10,6 +11,7 @@ export default async function Home() {
 			<div>message from server (server component): {data.message}</div>
 			<Client_Component />
 			<div>Testing changes again!!</div>
+            <Button>test</Button> 
 		</div>
 	);
 }
