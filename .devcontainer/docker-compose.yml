@@ -15,7 +15,9 @@ services:
             - ../client-web:/app
         ports:
             - "3000:3000"
-        command: sh -c "npm run dev"
+        command: sh -c "
+          npm install && \
+          npm run dev"
         depends_on:
             - server
     server:
@@ -25,4 +27,6 @@ services:
             - "8000:8000"
         volumes:
             - ../server:/app
-        command: sh -c "npm run dev"
+        command: sh -c "
+          npm install && \
+          npm run dev"
