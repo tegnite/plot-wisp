@@ -28,7 +28,9 @@ app.use("/api/users", user_routes);
 app.use("/api/stories", story_routes);
 
 app.get("/", (_, res) => {
-    res.send("hello form plot-wisp backend!");
+    res.json({
+        message: "hello form plot-wisp backend server!",
+    });
 });
 
 // Error handling middleware
