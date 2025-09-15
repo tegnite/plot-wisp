@@ -1,5 +1,5 @@
 <template>
-  <div class="logout">
+  <div class="logout  min-h-screen flex flex-col items-center  bg-main-gradient">
     <h1>You have been logged out.</h1>
     <p>Redirecting to the home page...</p>
   </div>
@@ -19,10 +19,3 @@ onMounted(() => {
   }, 2000)
 })
 </script>
-
-<style scoped>
-.logout {
-  text-align: center;
-  padding: 2rem;
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
   <div class="login min-h-screen flex flex-col items-center justify-center bg-main-gradient">
-    <div class="card shadow-lg rounded-xl p-8 bg-white/80 backdrop-blur-md">
+    <div class="card shadow-lg rounded-xl p-8 bg-white/80 backdrop-blur-md  w-full max-w-md">
       <h1 class="title text-3xl font-bold text-primary mb-6 text-center">Welcome Back!</h1>
       <form @submit.prevent="handleLogin" class="form flex flex-col gap-4">
         <div>
@@ -9,7 +9,7 @@
             type="text"
             id="username"
             v-model="username"
-            class="input w-full px-4 py-2 border border-accent rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition"
+            class="custom-input"
             placeholder="Enter your username"
             autocomplete="username"
           />
@@ -17,17 +17,18 @@
         <div>
           <label for="password" class="label block text-sm font-medium text-secondary mb-1">Password</label>
           <input
+            required
             type="password"
             id="password"
             v-model="password"
-            class="input w-full px-4 py-2 border border-accent rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition"
+            class="custom-input"
             placeholder="Enter your password"
             autocomplete="current-password"
           />
         </div>
         <button
           type="submit"
-          class="button w-full py-2 mt-2 bg-primary text-white font-semibold rounded-lg shadow hover:bg-primary-dark transition"
+          class="custom-button"
         >
           Login
         </button>
@@ -51,18 +52,3 @@ const handleLogin = () => {
   router.push('/')
 }
 </script>
-
-<style scoped>
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 300px;
-}
-</style>
