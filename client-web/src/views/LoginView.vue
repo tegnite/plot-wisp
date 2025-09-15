@@ -26,6 +26,9 @@
             autocomplete="current-password"
           />
         </div>
+        <div class="flex justify-end">
+          <router-link to="/register" class="text-primary text-sm hover:underline">Don't have an account? Register</router-link>
+        </div>
         <button
           type="submit"
           class="custom-button"
