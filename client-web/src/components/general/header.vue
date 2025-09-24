@@ -50,5 +50,5 @@
 </template>
 
 <script setup lang="ts">
-import ModeToggle from '@/components/Theme-Provider/mode-toggle.vue';
+import ModeToggle from '@/components/theme-provider/mode-toggle.vue';
 </script>
