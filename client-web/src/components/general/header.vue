@@ -16,6 +16,12 @@
           Home
       </RouterLink>
       <RouterLink
+        to="/write"
+        class="hover:text-yellow-700 transition"
+      >
+          Editor
+      </RouterLink>
+      <RouterLink
         to="/about"
         class=" hover:text-yellow-700 transition"
       >
