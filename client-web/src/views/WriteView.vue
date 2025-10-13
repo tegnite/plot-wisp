@@ -38,7 +38,12 @@ function publish() {
         placeholder="Title"
         class="text-5xl font-bold h-auto p-2 border-none focus-visible:ring-0 !ring-offset-0"
       />
-      <TextEditor v-model="content" />
+      <div class="w-full h-[600px]">
+        <TextEditor v-model="content" />
+      </div>
+      <div class="w-full h-[300px]">
+        <TextEditor v-model="content" />
+      </div>
     </div>
     <div v-else class="prose max-w-none">
       <h1>{{ title }}</h1>

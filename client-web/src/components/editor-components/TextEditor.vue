@@ -53,10 +53,17 @@ watch(
 </script>
 
 <template>
-  <div class="border rounded-lg">
-    <Toolbar :editor="editor" />
-    <div class="p-4 min-h-[300px]">
-      <EditorContent :editor="editor"/>
+  <div class="border rounded-lg h-full flex flex-col w-full">
+    <Toolbar v-if="editor" :editor="editor" />
+    <div class="p-4 flex-1 w-full">
+      <EditorContent :editor="editor" id="editor-content"/>
     </div>
   </div>
 </template>
+
+<style>
+#editor-content h1 {
+  color: red;
+  font-size: 30px;
+}
+</style>
