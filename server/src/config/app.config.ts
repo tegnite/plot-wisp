@@ -7,6 +7,7 @@ import { story_routes } from "@app/modules/stories/stories.routes";
 import cors from "cors";
 import { get_env } from "@app/config/env.config";
 import dotenv from "dotenv";
+import imageRoute from "@app/modules/imageUpload/image.routes";
 
 dotenv.config();
 const app = express();
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use("/api/auth", auth_routes);
 app.use("/api/users", user_routes);
 app.use("/api/stories", story_routes);
+app.use("/api/image", imageRoute);
 
 app.get("/", (_, res) => {
     res.json({
